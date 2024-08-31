@@ -1,0 +1,44 @@
+class Activity {
+  constructor(Id, Name, Description, Code,Active) {
+    this.setId(Id);
+    this.setName(Name);
+    this.setDescription(Description);
+    this.setCode(Code);
+    this.setActive(Active);
+  }
+
+  setId(Id) {
+    if ( isNaN(Id)) {
+      throw new Error('Id must be a valid number');
+    }
+    this.id = Id;
+  }
+
+  setName(Name) {
+    if ( Name.trim() === '') {
+      throw new Error('Name is required and must be a non-empty string');
+    }
+    this.name = Name;
+  }
+
+  setDescription(Description) {
+    // Optional field; validation not required
+    if (Description && typeof Description !== 'string') {
+      throw new Error('Description must be a string');
+    }
+    this.description = Description;
+  }
+
+  setCode(Code) {
+    if ( Code.trim() === '') {
+      throw new Error('Code is required');
+    }
+    this.code = Code;
+  }
+  setActive(Active) {
+  
+    this.Active = Active;
+  }
+}
+
+module.exports = Activity;
